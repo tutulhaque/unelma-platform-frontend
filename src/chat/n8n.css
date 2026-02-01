@@ -1,0 +1,9 @@
+.chat-window-wrapper .chat-window-toggle {
+  background-color: #3780b2;
+}
+.chat-window-wrapper .chat-window-toggle:hover {
+  background-color: #008081;
+}
+.chat-layout .chat-header {
+  background-color: #008081;
+}
