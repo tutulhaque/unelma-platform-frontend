@@ -24,12 +24,12 @@ const UnelmaPayForm = ({ orderId, itemName, amount }) => {
       <input
         type="hidden"
         name="success_url"
-        value="http://localhost:5173/payment-success"
+        value="https://unelma-platform-frontend.vercel.app/payment-success"
       />
       <input
         type="hidden"
         name="fail_url"
-        value="http://localhost:5173/payment-failed"
+        value="https://unelma-platform-frontend.vercel.app/payment-failed"
       />
       <input
         type="hidden"

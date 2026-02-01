@@ -70,7 +70,9 @@ const Blog = ({ title, blog_color_title, blogs }) => {
             ))}
             <div className="flex justify-center">
               <button className="mt-6 bg-[#3780B2] text-white px-6 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all font-semibold flex items-center gap-2">
-                <a href="http://localhost:5173/blog">View All Posts </a>
+                <a href="https://unelma-platform-frontend.vercel.app/blog">
+                  View All Posts{" "}
+                </a>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

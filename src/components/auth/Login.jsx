@@ -5,9 +5,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 const STRAPI_BASE_URL = "https://unelma-platform-backend.onrender.com";
 const API_URL = `${STRAPI_BASE_URL}/api/auth/local`;
 
-// 5173 is the port your React app is running on.
 // We direct it to /login so this component's useEffect hook can catch the token.
-const FRONTEND_REDIRECT_URL = "http://localhost:5173/login";
+const FRONTEND_REDIRECT_URL =
+  "https://unelma-platform-frontend.vercel.app/login";
 
 // CONSTRUCTING THE FINAL URL WITH THE REDIRECT PARAMETER FOR STRAPI
 const GOOGLE_LOGIN_URL = `${STRAPI_BASE_URL}/api/connect/google?redirect_uri=${FRONTEND_REDIRECT_URL}`;
