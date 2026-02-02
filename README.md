@@ -1,83 +1,115 @@
-# Unelma Project Frontend
+# Unelma Platform
 
-This is a modern and responsive website built with **React** and **Tailwind CSS**.  
-It includes multiple pages and creative sections that highlight design, functionality, and smooth user experience.
+Unelma is a web platform designed to represent a modern digital agency.  
+The application includes a public website, product purchasing flow, service presentation, blog content, and a contact system.
 
----
-
-## 📄 All Pages
-
-### 🏠 Home
-
-The **Home page** includes several sections:
-
-- **Banner** – a hero section with animation and background image
-- **Sliding Text** – scrolling animated text line
-- **Services** – list of services with icons
-- **Portfolio** – creative project showcase
-- **Testimonials** – feedback section from clients
-- **Work Process** – step-by-step workflow
-- **Blog Preview** – short view of latest posts
-- **Contact Form** – quick form to connect
+The platform is structured to support real-world use cases such as business websites, e-commerce ordering, content publishing, and client communication.
 
 ---
 
-### 🏢 About
+## Live Demo
 
-The **About page** includes:
-
-- **About Company** – introduction and overview of the company
-- **Mission & Vision** – goals and direction
-- **Team** – team members with photos and details
+Frontend: https://unelma-platform-frontend.vercel.app
 
 ---
 
-### 📰 Blog
+## Pages
 
-The **Blog page** shows all blog posts in a clean three-column layout.
+The application consists of the following main pages:
 
----
-
-### 📞 Contact
-
-The **Contact page** includes:
-
-- **Contact Info** – address, phone, and email
-- **Contact Form** – simple form for sending messages
-- **Map Section** – embedded map for location view
+- Home
+- About
+- Products
+- Services
+- Blog
+- Contact
 
 ---
 
-### 🛍️ Product
+## Home Page
 
-The **Product page** highlights the available products (in progress).
+The Home page acts as the main landing page and provides an overview of the platform.
 
----
+Sections included:
 
-## 🛠️ Tech Stack
-
-- **React.js**
-- **Tailwind CSS**
-- **Lucide Icons**
-- **Swiper.js** (for sliders)
-- **GSAP** (for animations)
-
----
-
-## 🚀 Features
-
-- Fully responsive design
-- Smooth animations
-- Gradient color theme
-- Clean and reusable components
+- Three banner sections
+- Marquee-style product text
+- Services overview
+- Portfolio section
+- Testimonials
+- Work process section
+- Blog preview section
+- Contact form
 
 ---
 
-## 📧 Contact
+## About Page
 
-**Unelma Platforms OÜ**  
-Tallinn, Estonia  
-📞 +358(0) 44 9889771  
-📩 info@unelmaplatforms.com
+The About page presents information about the organization.
+
+Sections included:
+
+- Page banner with title
+- Who We Are
+- Our Mission
+- Our Vision
+- Meet the Team
 
 ---
+
+## Products & Checkout
+
+The Products page displays available products using product cards.
+
+Each product includes:
+
+- Product details
+- Add to Cart button
+
+User flow:
+
+- Add product to cart
+- Redirect to Cart page
+- Proceed to Checkout
+- Complete payment
+
+Payments are handled using Stripe card payments.
+
+---
+
+## Services Page
+
+The Services page displays available services using service cards.
+
+Services include:
+
+- Web Development
+- Security & Compliance
+- UI/UX Design
+- Cloud Services
+
+Each service card includes:
+
+- Service Details button
+- Get a Quote button
+
+---
+
+## Blog Page
+
+The Blog page displays published blog posts in a clean and readable layout.
+
+---
+
+## Contact Page
+
+The Contact page includes a contact form for user inquiries.
+
+---
+
+## Technology Stack
+
+- Frontend: React
+- Backend: Strapi
+- Payment Integration: Stripe
+- Styling: Responsive UI design
