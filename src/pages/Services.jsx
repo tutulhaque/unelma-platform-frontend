@@ -17,13 +17,13 @@ const Services = ({ setIsOpen }) => {
       .catch((err) => console.error("Failed to load services:", err));
   }, []);
 
-  // Function to get image URL from the service data
+  //to get image URL from the service data
   const getImageUrl = (service) => {
     const img = service.service_image;
-    if (!img) return "https://via.placeholder.com/600x400";
+    if (!img) return "https://placehold.co/600x400";
     if (img.url)
       return `https://unelma-platform-backend.onrender.com${img.url}`;
-    return "https://via.placeholder.com/600x400";
+    return "https://placehold.co/600x400";
   };
 
   return (
@@ -38,7 +38,7 @@ const Services = ({ setIsOpen }) => {
               key={service.id}
               service={service}
               image={getImageUrl(service)}
-              setIsOpen={setIsOpen} // ✅ open global modal
+              setIsOpen={setIsOpen} // open global modal
             />
           ))}
         </div>

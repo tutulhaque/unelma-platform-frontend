@@ -25,7 +25,7 @@ const SingleServicePage = ({ setIsOpen }) => {
 
   const bannerImage = service.service_image?.url
     ? `https://unelma-platform-backend.onrender.com${service.service_image.url}`
-    : "https://via.placeholder.com/1400x700";
+    : "https://placehold.co/600x400";
 
   const renderRichText = (blocks) => {
     if (!Array.isArray(blocks)) return null;
@@ -68,7 +68,7 @@ const SingleServicePage = ({ setIsOpen }) => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* ================= HERO ================= */}
+      {/*  HERO Section */}
       <section className="relative h-[460px] flex items-center justify-center">
         <img
           src={bannerImage}
@@ -88,16 +88,16 @@ const SingleServicePage = ({ setIsOpen }) => {
         </div>
       </section>
 
-      {/* ================= CONTENT ================= */}
+      {/*  CONTENT Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto space-y-16">
-          {/* ===== SERVICE LEFT TEXT + RIGHT IMAGE ===== */}
+          {/* SERVICE LEFT TEXT & RIGHT IMAGE */}
           {service.service_left_text && (
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 {renderRichText(service.service_left_text)}
 
-                {/* ✅ Linked to global Quote modal */}
+                {/* Linked global Quote modal */}
                 <button
                   onClick={() => setIsOpen(true)}
                   className="bg-[#3780B2] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#2a6c97] transition mt-4 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
@@ -110,7 +110,7 @@ const SingleServicePage = ({ setIsOpen }) => {
                 src={
                   service.service_right_image?.url
                     ? `https://unelma-platform-backend.onrender.com${service.service_right_image.url}`
-                    : "https://via.placeholder.com/600x420"
+                    : "https://placehold.co/600x400"
                 }
                 alt="Service Visual"
                 className="rounded-2xl shadow-lg object-cover w-full h-[420px]"
@@ -118,35 +118,12 @@ const SingleServicePage = ({ setIsOpen }) => {
             </div>
           )}
 
-          {/* ===== RICH TEXT FIELD ===== */}
+          {/* RICH TEXT FIELD */}
           {service.service_long_details && (
             <div className="bg-white rounded-2xl shadow-xl p-10">
               {renderRichText(service.service_long_details)}
             </div>
           )}
-
-          {/* ===== FEATURES ===== */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Modern Technology",
-                desc: "Latest frameworks for speed and scalability.",
-              },
-              {
-                title: "Business Focused",
-                desc: "Designed to convert visitors into customers.",
-              },
-              {
-                title: "Ongoing Support",
-                desc: "Maintenance, updates, and optimization.",
-              },
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg">
-                <h4 className="text-xl font-semibold mb-3">{item.title}</h4>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

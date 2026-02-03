@@ -20,7 +20,7 @@ const Checkout = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // ✅ Cash on Delivery order
+  // Cash on Delivery order
   const placeCODOrder = async () => {
     if (
       !form.customer_name ||
@@ -80,7 +80,7 @@ const Checkout = () => {
     setLoading(false);
   };
 
-  // ✅ Stripe payment
+  // Stripe payment
   const handleStripeCheckout = async () => {
     if (
       !form.customer_name ||
@@ -127,7 +127,7 @@ const Checkout = () => {
   if (orderPlaced)
     return (
       <h2 className="p-5 text-2xl text-green-600">
-        🎉 Order placed successfully! We will contact you soon.
+        Order placed successfully! We will contact you soon.
       </h2>
     );
 

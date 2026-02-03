@@ -24,13 +24,13 @@ import { Toaster } from "react-hot-toast";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 function App() {
-  // ✅ Global Quote Modal state
+  // Global Quote Modal state
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
     <CartProvider>
       <Router>
-        {/* ✅ Global Quote Modal */}
+        {/* Global Quote Modal */}
         <QuoteFormModal isOpen={isQuoteOpen} setIsOpen={setIsQuoteOpen} />
 
         <Layout>
@@ -38,7 +38,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/product" element={<Product />} />
 
-            {/* ✅ Services Pages */}
+            {/* Services Pages */}
             <Route
               path="/services"
               element={<Services setIsOpen={setIsQuoteOpen} />}

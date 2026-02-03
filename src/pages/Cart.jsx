@@ -22,9 +22,7 @@ const Cart = () => {
         <h1 className="text-3xl font-bold mb-3">Your Cart is Empty</h1>
         <p className="text-gray-600">Add some items to continue shopping.</p>
         <button className="mt-5 w-36 bg-[#3780B2] text-white py-2 rounded-lg font-medium hover:bg-[#2b6d97] transition">
-          <a href="https://unelma-platform-frontend.vercel.app/product">
-            Back to product
-          </a>
+          <a href="/product">Back to product</a>
         </button>
       </div>
     );

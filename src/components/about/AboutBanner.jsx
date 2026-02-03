@@ -9,7 +9,7 @@ const AboutBanner = ({ title, backgroundImage }) => {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#3780B2cc] via-[#008081cc] to-black/60"></div>
 
-      {/* Decorative Blur (for depth) */}
+      {/* Decorative Blur */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[100px] blur-3xl opacity-50 bg-gradient-to-t from-[#008081] to-transparent"></div>
 
       {/* Title */}

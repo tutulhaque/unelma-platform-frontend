@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-// --- Define the Strapi URL constants ---
 const STRAPI_BASE_URL = "https://unelma-platform-backend.onrender.com";
 const API_URL = `${STRAPI_BASE_URL}/api/auth/local`;
 
-// We direct it to /login so this component's useEffect hook can catch the token.
 const FRONTEND_REDIRECT_URL =
   "https://unelma-platform-frontend.vercel.app/login";
 
-// CONSTRUCTING THE FINAL URL WITH THE REDIRECT PARAMETER FOR STRAPI
 const GOOGLE_LOGIN_URL = `${STRAPI_BASE_URL}/api/connect/google?redirect_uri=${FRONTEND_REDIRECT_URL}`;
 // ----------------------------------------
 
@@ -19,7 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation(); // Hook to access the current URL
 
-  // --- GOOGLE LOGIN REDIRECTION HANDLER ---
+  // GOOGLE LOGIN REDIRECTION HANDLER //
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const jwt = params.get("access_token");
@@ -68,7 +65,7 @@ const Login = () => {
       <h2 className="text-2xl font-bold text-center">Login</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* ... (Standard login form inputs) ... */}
+        {/* ... (form inputs) ... */}
         <input
           type="text"
           name="identifier"
@@ -95,7 +92,7 @@ const Login = () => {
         </button>
       </form>
 
-      {/* --- GOOGLE LOGIN BUTTON NOW USES THE NEW URL --- */}
+      {/* GOOGLE LOGIN BUTTON */}
       <div className="text-center">
         <p className="my-3 text-gray-500">OR</p>
         <a href={GOOGLE_LOGIN_URL} className="block">
@@ -130,8 +127,6 @@ const Login = () => {
           </button>
         </a>
       </div>
-      {/* ------------------------------- */}
-
       <p className="text-center text-sm text-gray-600 mt-2">{message}</p>
     </div>
   );

@@ -32,8 +32,6 @@ const About = () => {
   const aboutImage = aboutData.who_we_are_image?.url;
   const missionImage = aboutData.our_mission_image?.url;
   const vissionImage = aboutData.our_vission_image?.url;
-  // const missionVision = aboutData.mission_vision || [];
-  // const teamMembers = aboutData.team_members || [];
 
   return (
     <div>

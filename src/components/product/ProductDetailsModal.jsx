@@ -1,4 +1,3 @@
-// src/components/ProductDetailsModal.jsx
 import React from "react";
 
 const ProductDetailsModal = ({ isOpen, onClose, details }) => {

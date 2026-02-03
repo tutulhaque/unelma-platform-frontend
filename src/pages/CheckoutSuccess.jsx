@@ -6,7 +6,7 @@ const CheckoutSuccess = () => {
   const { clearCart } = useCart();
 
   useEffect(() => {
-    clearCart(); // ✅ clear cart after successful payment
+    clearCart(); // clear cart after successful payment
   }, [clearCart]);
 
   return (

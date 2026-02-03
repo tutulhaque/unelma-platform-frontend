@@ -7,7 +7,7 @@ const ServicesSection = ({ service, setIsOpen }) => {
 
   const image = service_image?.url
     ? `https://unelma-platform-backend.onrender.com${service_image.url}`
-    : "https://via.placeholder.com/600x400";
+    : "https://placehold.co/600x400";
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition-shadow duration-300 ease-in-out">

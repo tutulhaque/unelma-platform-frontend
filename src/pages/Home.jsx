@@ -20,11 +20,11 @@ const Home = () => {
         );
         const data = await res.json();
 
-        // Check if data has 'attributes' or use it directly
+        // Check if data has attributes
         if (data.data) {
-          setHomeData(data.data.attributes); // for standard Strapi REST API
+          setHomeData(data.data.attributes);
         } else {
-          setHomeData(data); // your current setup
+          setHomeData(data);
         }
 
         setLoading(false);

@@ -19,19 +19,19 @@ function Navbar() {
     0,
   );
 
-  /* ---------------- FETCH LOGO ---------------- */
+  /*  FETCH LOGO */
   useEffect(() => {
     fetch("https://unelma-platform-backend.onrender.com/api/global?populate=*")
       .then((res) => res.json())
       .then((data) => setGlobal(data?.data));
   }, []);
 
-  /* ---------------- AUTH CHECK ---------------- */
+  /*  AUTH CHECK  */
   useEffect(() => {
     setIsLoggedIn(!!localStorage.getItem("jwt"));
   }, []);
 
-  /* ---------------- FETCH NAV ---------------- */
+  /*  FETCH NAV  */
   useEffect(() => {
     fetch("https://unelma-platform-backend.onrender.com/api/navigations")
       .then((res) => res.json())
@@ -46,7 +46,7 @@ function Navbar() {
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           {/* LOGO */}
@@ -124,7 +124,7 @@ function Navbar() {
         </div>
       </nav>
 
-      {/* ================= MOBILE MENU ================= */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="fixed top-16 left-0 w-full bg-white z-40 shadow-md md:hidden">
           <ul className="flex flex-col p-4 space-y-4 font-semibold">

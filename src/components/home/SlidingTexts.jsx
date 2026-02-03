@@ -18,7 +18,7 @@ const SlidingText = ({ slidingTexts }) => {
       duration,
     });
 
-    // Optional: subtle pulse animation
+    // subtle pulse animation
     gsap.to(".sliding-item", {
       opacity: 0.6,
       scale: 0.95,

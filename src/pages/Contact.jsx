@@ -32,7 +32,7 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: formData, // ✅ Strapi v4 expects { data: {...} }
+          data: formData,
         }),
       });
 
