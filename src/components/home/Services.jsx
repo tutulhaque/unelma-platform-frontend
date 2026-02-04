@@ -9,10 +9,6 @@ const Services = ({
   services_image,
   HomeServices,
 }) => {
-  const handleLearnMore = (title) => {
-    alert(`Learn more about: ${title}`);
-  };
-
   return (
     <section className="py-24 px-4 md:px-8 bg-gradient-to-b from-[#F9FAFB] to-[#EAF4F4]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-14">

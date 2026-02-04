@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Mail, Send, Facebook, Instagram, Linkedin } from "lucide-react";
+import * as Icons from "lucide-react";
 import UnelmaMailForm from "../mail/UnelmaMailForm";
 
 const Footer = () => {
@@ -21,19 +21,6 @@ const Footer = () => {
 
   if (!footerData) return null;
 
-  const renderSocialIcon = (platform) => {
-    switch (platform) {
-      case "Facebook":
-        return <Facebook className="w-5 h-5" />;
-      case "Instagram":
-        return <Instagram className="w-5 h-5" />;
-      case "LinkedIn":
-        return <Linkedin className="w-5 h-5" />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <footer className="bg-gradient-to-b from-[#EAF4F4] to-[#F9FAFB] text-gray-700 pt-16 pb-8 px-6 md:px-12 lg:px-20 border-t border-gray-200">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -46,16 +33,20 @@ const Footer = () => {
             {footerData.brandDescription}
           </p>
           <div className="flex gap-4">
-            {footerData.socialLink.map((link) => (
-              <a
-                key={link.id}
-                href={link.url}
-                className={`w-9 h-9 flex items-center justify-center bg-white rounded-full shadow hover:scale-110 transition-all`}
-                style={{ backgroundColor: link.color || "white" }}
-              >
-                {renderSocialIcon(link.platform)}
-              </a>
-            ))}
+            {footerData.socialLink.map((link) => {
+              const Icon = Icons[link.platform];
+              return (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  className={`w-9 h-9 flex items-center justify-center bg-white rounded-full shadow hover:scale-110 transition-all`}
+                  style={{ backgroundColor: link.color || "white" }}
+                >
+                  {/* {renderSocialIcon(link.platform)} */}
+                  {Icon && <Icon className="w-6 h-6 text-[#008081]" />}
+                </a>
+              );
+            })}
           </div>
         </div>
 

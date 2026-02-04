@@ -51,15 +51,12 @@ const Portfolio = ({
               nextEl: navNextRef.current,
             }}
             onBeforeInit={(swiper) => {
-              // bind navigation refs (Swiper requires refs to be set this way)
-              // eslint-disable-next-line no-param-reassign
               swiper.params.navigation.prevEl = navPrevRef.current;
-              // eslint-disable-next-line no-param-reassign
               swiper.params.navigation.nextEl = navNextRef.current;
             }}
             loop={true}
             centeredSlides={true}
-            slidesPerView={"auto"} // important for partial visible slides
+            slidesPerView={"auto"}
             spaceBetween={24}
             speed={600}
             className="py-8"
@@ -67,11 +64,9 @@ const Portfolio = ({
             {portfolioItems.map((portfolio) => (
               <SwiperSlide
                 key={portfolio.id}
-                // important: width controls visual rhythm. slidesPerView: 'auto' respects this width.
                 style={{ width: portfolio.id % 2 === 0 ? 446 : 360 }}
                 className="!flex !justify-center"
               >
-                {/* Card container — visual sizing controlled by CSS classes below depending on Swiper state classes */}
                 <div className="portfolio-card relative rounded-2xl overflow-hidden shadow-lg w-full">
                   <img
                     src={`https://unelma-platform-backend.onrender.com${portfolio.image.url}`}
@@ -105,31 +100,6 @@ const Portfolio = ({
           </Swiper>
         </div>
       </div>
-
-      {/* Custom CSS for sizes & rhythm */}
-      <style>{`
-        /* Base small card size (outer / partially visible) */
-        .portfolio-card { width: 100%; border-radius: 16px; }
-        /* Active center slide becomes tall (big card) */
-        .swiper-slide-active .portfolio-card { transform: translateY(-30px); box-shadow: 0 30px 60px rgba(6,15,28,0.12); }
-        /* The active slide is visually the "first focus" — make it taller */
-        .swiper-slide-active .portfolio-card img { height: 556px !important; }
-
-        /* The next slide (right of center) becomes the short focused card */
-        .swiper-slide-next .portfolio-card img { height: 383px !important; transform: translateY(30px); }
-
-        /* The previous slide (left of center) also small focused card */
-        .swiper-slide-prev .portfolio-card img { height: 383px !important; transform: translateY(30px); }
-
-        /* Other slides smaller & dim */
-        .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) .portfolio-card img { height: 300px !important; opacity: 0.85; transform: scale(0.98); }
-
-        /* Smooth transforms */
-        .portfolio-card img { transition: transform 500ms cubic-bezier(.22,.9,.35,1), height 500ms ease; }
-
-        /* Make sure Swiper slides are horizontally centered and part-visible */
-        .swiper-wrapper { align-items: center; }
-      `}</style>
     </section>
   );
 };

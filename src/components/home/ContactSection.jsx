@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import axios from "axios";
 
 const ContactSection = ({ title, contacts_color_title, description }) => {
   const API_URL = "https://unelma-platform-backend.onrender.com";
@@ -15,12 +15,10 @@ const ContactSection = ({ title, contacts_color_title, description }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -28,52 +26,41 @@ const ContactSection = ({ title, contacts_color_title, description }) => {
     setError(false);
 
     try {
-      const res = await fetch(`${API_URL}/api/contact-forms`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: formData, // ✅ Strapi v4 expects { data: {...} }
-        }),
+      const res = await axios.post(`${API_URL}/api/contact-forms`, {
+        data: formData,
       });
 
-      if (res.ok) {
+      if (res.status === 200 || res.status === 201) {
         setSuccess(true);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        setError(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
       }
     } catch (err) {
       console.error("Error submitting form:", err);
       setError(true);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
     <section className="relative py-20 px-6 bg-gradient-to-b from-[#FFF9F7] to-[#F0FFFC]">
       <div className="max-w-5xl mx-auto text-center mb-12">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
           {title}{" "}
           <span className="text-transparent bg-clip-text bg-[#3780B2]">
             {contacts_color_title}
           </span>
-        </motion.h2>
+        </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">{description}</p>
       </div>
 
-      <motion.form
+      <form
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
         className="max-w-3xl mx-auto bg-white/60 backdrop-blur-md shadow-lg rounded-2xl p-8 md:p-10 border border-white/40"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -159,16 +146,14 @@ const ContactSection = ({ title, contacts_color_title, description }) => {
 
         {/* Button */}
         <div className="flex justify-center mt-8">
-          <motion.button
+          <button
             type="submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             disabled={loading}
             className="bg-[#3780B2] text-white px-8 py-3 rounded-full shadow-md hover:shadow-lg flex items-center gap-2 font-semibold cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {loading ? "Sending..." : "Send Message"}{" "}
+            {loading ? "Sending..." : "Send Message"}
             <Send className="w-4 h-4" />
-          </motion.button>
+          </button>
         </div>
 
         {/* Status Messages */}
@@ -182,7 +167,7 @@ const ContactSection = ({ title, contacts_color_title, description }) => {
             ❌ Failed to send message. Try again later.
           </p>
         )}
-      </motion.form>
+      </form>
     </section>
   );
 };

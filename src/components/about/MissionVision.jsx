@@ -3,7 +3,7 @@ import React from "react";
 const MissionVision = ({ missionImage, vissionImage, data }) => {
   return (
     <section className="w-full">
-      {/* Mission Row */}
+      {/* ------ Mission Row ------ */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Text Left */}
         <div className="flex flex-col justify-center p-10 bg-gradient-to-r from-[#E0F7F4] to-[#bfddd9] text-gray-800">
@@ -28,7 +28,7 @@ const MissionVision = ({ missionImage, vissionImage, data }) => {
         </div>
       </div>
 
-      {/* Vision Row */}
+      {/* ------ Vision Row ------ */}
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Image Left */}
         <div>

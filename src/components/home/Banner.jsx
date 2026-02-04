@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import { gsap } from "gsap";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
 const Banner = () => {
-  const swiperRef = useRef(null);
   const [slides, setSlides] = useState([]);
-  const [loading, setLoading] = useState(true);
   const API_URL = "https://unelma-platform-backend.onrender.com";
 
   useEffect(() => {
@@ -33,52 +30,21 @@ const Banner = () => {
 
           setSlides(formattedSlides);
         }
-
-        setLoading(false);
       } catch (err) {
         console.error("Error fetching slider data:", err);
-        setLoading(false);
       }
     };
 
     fetchSlides();
   }, []);
 
-  // GSAP animation
-  useEffect(() => {
-    if (!slides.length) return;
-
-    const swiperEl = swiperRef.current.swiper;
-
-    const animateSlide = () => {
-      gsap.fromTo(
-        ".swiper-slide-active .slide-content",
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, stagger: 0.25, ease: "power3.out" },
-      );
-    };
-
-    animateSlide();
-
-    swiperEl.on("slideChangeTransitionStart", () => {
-      gsap.set(".slide-content", { opacity: 0, y: 40 });
-    });
-
-    swiperEl.on("slideChangeTransitionEnd", animateSlide);
-  }, [slides]);
-
-  if (loading) return <p>Loading banner...</p>;
-  if (!slides.length) return <p>No slides found.</p>;
-
   return (
     <section className="relative w-full h-[70vh] text-white overflow-hidden">
       <Swiper
-        ref={swiperRef}
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
         autoplay={{ delay: 4000 }}
         pagination={{ clickable: true }}
-        loop
         className="h-full"
       >
         {slides.map((slide, i) => (

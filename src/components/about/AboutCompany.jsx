@@ -7,57 +7,50 @@ const AboutCompany = ({
   who_we_are_color_title,
   text,
   reverse,
-}) => (
-  <section className="relative py-20 px-6 md:px-12 overflow-hidden">
-    {/* Gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff] via-[#ffffff] to-[#ffffff]"></div>
-
-    {/* Decorative blur shapes */}
-    <div className="absolute top-10 left-20 w-56 h-56 bg-[#008081]/20 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-10 right-20 w-72 h-72 bg-[#3780B2]/20 rounded-full blur-3xl"></div>
-
-    <div
-      className={`relative z-10 max-w-7xl mx-auto flex flex-col ${
-        reverse ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center gap-12`}
-    >
-      {/* Image Section */}
-      <motion.div
-        initial={{ opacity: 0, x: reverse ? 80 : -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="md:w-1/2 w-full"
+}) => {
+  return (
+    <section className="relative py-20 px-6 md:px-12 overflow-hidden">
+      <div
+        className={`flex flex-col md:flex-row items-center gap-12 ${reverse ? "md:flex-row-reverse" : ""}`}
       >
-        <div className="relative group">
-          <img
-            src={image}
-            alt={heading}
-            className="rounded-3xl shadow-lg w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#FF8A73]/20 to-[#008081]/10 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-        </div>
-      </motion.div>
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, x: reverse ? 80 : -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="md:w-2/4 w-full" // image height
+        >
+          <div className="relative group">
+            <img
+              src={image}
+              alt={heading}
+              className="rounded-3xl shadow-lg w-full object-cover h-[400px] md:h-[400px] transform group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#FF8A73]/20 to-[#008081]/10 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+          </div>
+        </motion.div>
 
-      {/* Text Section */}
-      <motion.div
-        initial={{ opacity: 0, x: reverse ? -80 : 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="md:w-1/2 w-full text-center md:text-left"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r text-gray-800 bg-clip-text">
-          {heading}
-          <span className="text-[#3780B2]"> {who_we_are_color_title}</span>
-        </h2>
-        <p className="text-lg text-gray-700 leading-relaxed mb-6">{text}</p>
-        <button className="px-8 py-3 bg-gradient-to-r from-[#3780B2] to-[#008081] text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all font-semibold">
-          Learn More
-        </button>
-      </motion.div>
-    </div>
-  </section>
-);
+        {/* Text Section */}
+        <motion.div
+          initial={{ opacity: 0, x: reverse ? -80 : 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="md:w-2/5 w-full text-center md:text-left" // little smaller than image
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r text-gray-800 bg-clip-text">
+            {heading}
+            <span className="text-[#3780B2]"> {who_we_are_color_title}</span>
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">{text}</p>
+          <button className="px-8 py-3 bg-gradient-to-r from-[#3780B2] to-[#008081] text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all font-semibold">
+            Learn More
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default AboutCompany;

@@ -1,26 +1,6 @@
-import React from "react";
-import {
-  UserRound,
-  ShoppingBag,
-  Send,
-  FileText,
-  CreditCard,
-} from "lucide-react";
+import * as Icons from "lucide-react";
 
-// Map icon names (from API) to actual Lucide components
-const Icons = {
-  UserRound: UserRound,
-  ShoppingBag: ShoppingBag,
-  Send: Send,
-  FileText: FileText,
-  CreditCard: CreditCard,
-};
-
-export default function WorkProcess({
-  title,
-  workProcesses,
-  workprocess_color_title,
-}) {
+const WorkProcess = ({ title, workProcesses, workprocess_color_title }) => {
   if (!Array.isArray(workProcesses)) return null; // prevent errors if data not ready
 
   return (
@@ -37,14 +17,14 @@ export default function WorkProcess({
           <div className="absolute top-7 left-0 w-full h-[2px] bg-gradient-to-r from-[#B2EAEA] via-[#008081]/20 to-[#B2EAEA] z-0"></div>
 
           {workProcesses.map((step) => {
-            const Icon = Icons[step.icon]; // get icon component dynamically
+            const Icon = Icons[step.icon];
             return (
               <div
                 key={step.id}
                 className="relative z-10 flex flex-col items-center text-center w-1/5"
               >
                 <div className="flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-md ring-2 ring-[#B2EAEA]">
-                  {Icon && <Icon className="w-6 h-6 text-[#008081]" />}
+                  {Icon ? <Icon className="w-6 h-6 text-[#008081]" /> : null}
                 </div>
                 <h3 className="mt-4 font-semibold text-gray-900 text-lg">
                   {step.title}
@@ -68,7 +48,7 @@ export default function WorkProcess({
               return (
                 <div key={step.id} className="relative pl-16 z-10 text-left">
                   <div className="absolute left-3 top-0 w-10 h-10 bg-white rounded-full shadow-md ring-2 ring-[#B2EAEA] flex items-center justify-center">
-                    {Icon && <Icon className="w-6 h-6 text-[#008081]" />}
+                    {Icon ? <Icon className="w-6 h-6 text-[#008081]" /> : null}
                   </div>
                   <h3 className="font-semibold text-gray-900 text-lg">
                     {step.title}
@@ -84,4 +64,6 @@ export default function WorkProcess({
       </div>
     </section>
   );
-}
+};
+
+export default WorkProcess;

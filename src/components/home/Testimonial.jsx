@@ -29,7 +29,7 @@ export default function Testimonial({
             <SwiperSlide key={t.id}>
               <div className="bg-white shadow-lg rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 transition-transform hover:-translate-y-2">
                 <img
-                  src={`http://localhost:1337${t.image.url}`}
+                  src={`https://unelma-platform-backend.onrender.com${t.image.url}`}
                   alt={t.name}
                   className="w-16 h-16 rounded-full object-cover border-2 border-[#008081]"
                 />
